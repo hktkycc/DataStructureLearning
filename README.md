@@ -7,4 +7,4 @@ Stack.cpp is a demo shows how to create a Stack structure using C/C++, and it's 
 
 Queue.cpp is a demo shows how to create a queue using C/C++, and it's aldo a kind of LinkList.
 
-tree.cpp is a demo shows how to create a tree using C/C++.
+tree.cpp is a demo shows how to create a tree using C/C++.And contains three traversals of binary tree.
