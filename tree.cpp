@@ -30,20 +30,6 @@ void add(BiTNode* t, int data, int dir)
 		p->right = m;
 }
 
-/*void remove(BiTNode* t, int e)
-{
-	int queue[100];
-	int front = 0, rear = 0;
-	BiTNode* p = t;
-	queue[0] = p->data;
-	rear = 1;
-	while (rear!=front)
-	{
-		front++;
-
-	}
-}*/
-
 
 void Preorder(BiTNode* t)
 {
