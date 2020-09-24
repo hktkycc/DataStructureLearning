@@ -69,17 +69,6 @@ void Bacorder(BiTNode* t)
 	cout << p->data << " ";
 }
 
-
-void show(BiTNode* t)
-{
-	BiTNode* p = t;
-	while(p!=NULL)
-	{
-		cout << p->data << " ";
-		p = p->right;
-	}
-}
-
 int main()
 {
 	BiTNode* test;
@@ -93,5 +82,4 @@ int main()
 	cout << endl;
 	cout << "BackOrder: ";
 	Bacorder(test);
-
 }
