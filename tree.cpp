@@ -8,17 +8,6 @@ typedef struct BiTNode//二叉树定义
 	struct BiTNode* left, * right;
 }BitNode, * BiTree;
 
-
-BiTNode* init()
-{
-	BiTNode* t;
-	t = (BiTNode*)malloc(sizeof(BiTNode));
-	t->data = 0;
-	t->left = NULL;
-	t->right = NULL;
-	return t;
-}
-
 void create(BiTNode *&T)
 {
 	char ch;
@@ -36,7 +25,6 @@ void create(BiTNode *&T)
 	}
 }
 
-
 void Preorder(BiTNode* t)
 {
 	BiTNode* p = t;
@@ -47,7 +35,6 @@ void Preorder(BiTNode* t)
 		Preorder(p->right);
 }
 
-
 void Inorder(BiTNode* t)
 {
 	BiTNode* p = t;
@@ -57,7 +44,6 @@ void Inorder(BiTNode* t)
 	if(p->right!=NULL)
 		Inorder(p->right);
 }
-
 
 void Bacorder(BiTNode* t)
 {
