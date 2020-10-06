@@ -8,3 +8,5 @@ Stack.cpp is a demo shows how to create a Stack structure using C/C++, and it's 
 Queue.cpp is a demo shows how to create a queue using C/C++, and it's aldo a kind of LinkList.
 
 tree.cpp is a demo shows how to create a tree using C/C++.And contains three traversals of binary tree.
+
+qipao.cpp;xuanze.cpp;xuanze-op.cpp are different order algorithms, and xuanze-op.cpp is an optimized algorithm for xuanze.cpp
