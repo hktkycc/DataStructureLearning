@@ -32,15 +32,15 @@ bool QueueEmpty(Queue Q)
 }
 void EnQueue(Queue *Q, int i)
 {
-	Q->q[Q->front] = i;
+	Q->q[Q->rear] = i;
 	Q->rear++;
 }
 void DeQueue(Queue* Q, int* j)
 {
 	if (!QueueEmpty(*Q))
 	{
-		*j = Q->q[Q->rear];
-		Q->rear--;
+		*j = Q->q[Q->front];
+		Q->front++;
 	}
 }
 
