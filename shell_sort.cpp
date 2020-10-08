@@ -55,6 +55,24 @@ void shell_sort_insert(int a[], int length)
 	}
 }//插入法希尔排序
 
+void shell_sort_insert2(int a[], int length)
+{
+	int h = 1;
+	int n = 2;
+	int temp = 0;
+	int i;
+	for (int gap = length / 2; gap > 0; gap /= 2) { //增量序列
+		/*
+		* 下面就是插入排序*/
+		for (int j = gap; j < length; j++) {   //从当前增量序列处开始向后遍历
+			int tmp = a[j];
+			for (i = j; i >= gap && tmp<a[i - gap]; i -= gap) {
+				a[i] = a[i - gap];
+			}
+			a[i] = tmp;
+		}
+	}
+}//插入法希尔排序
 int main()
 {
 
@@ -74,7 +92,7 @@ int main()
 	double endtime = (double)(timeend - start);
 
 	start1 = clock();
-	shell_sort_insert(insert, MAX);
+	shell_sort_insert2(insert, MAX);
 	timeend1 = clock();
 	double endtime1 = (double)(timeend1 - start1);
 
