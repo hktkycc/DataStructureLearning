@@ -9,6 +9,6 @@ Queue.cpp is a demo shows how to create a queue using C/C++, and it's aldo a kin
 
 tree.cpp is a demo shows how to create a tree using C/C++.And contains three traversals of binary tree.
 
-qipao.cpp;xuanze.cpp;xuanze-op.cpp are different order algorithms, and xuanze-op.cpp is an optimized algorithm for xuanze.cpp
+qipao.cpp、xuanze.cpp、xuanze-op.cpp、insert_order.cpp、shell_order.cpp are different order algorithms, and xuanze-op.cpp is an optimized algorithm for xuanze.cpp
 
 graph.cpp is a demo shows how to create a graph using C/C++.
