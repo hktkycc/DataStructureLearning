@@ -5,26 +5,9 @@ using namespace std;
 #define MAX 80000
 clock_t start, timeend;
 
-void sswap(int &a, int &b)
-{
-	int c;
-	c = a;
-	a = b;
-	b = c;
-}
 
-int main()
+void insert_sort(int a[])
 {
-	start = clock();
-	int a[MAX];
-	for (int i = 0; i < MAX; i++)
-	{
-		a[i] = rand();
-		//cout << a[i] << " ";
-	}
-	cout << endl;
-	cout << "#";
-
 	for (int i = 1; i < MAX; i++)
 	{
 		int interval = a[i];
@@ -42,17 +25,36 @@ int main()
 		}
 
 	}
+}
+
+int main()
+{
+
+	int a[MAX];
+	for (int i = 0; i < MAX; i++)
+	{
+		a[i] = rand();
+		//cout << a[i] << " ";
+	}
+	cout << endl;
+	cout << "#";
+
+	start = clock();
+
+	for (int i = 1; i < MAX; i++)
+	{
+		int j;
+		int tmp = a[i];
+		for (j = i; j >= 0 && tmp < a[j - 1]; j--) {
+			a[j] = a[j - 1];
+		}
+		a[j] = tmp;
+
+	}
 
 	timeend = clock();
 	double endtime = (double)(timeend - start);
 
-
-
 	cout << endl;
 	cout << "Total time:" << endtime << "ms";
-
-	/*for (int i = 0; i < MAX; i++)
-	{
-		cout << a[i] << " ";
-	}*/
 }
