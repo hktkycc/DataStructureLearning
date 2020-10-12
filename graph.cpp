@@ -3,10 +3,14 @@
 #include<queue>
 using namespace std;
 
+
 typedef char VertexType;
 typedef int EdgeType;
 #define MAX 100
 #define INFINITY 65535
+
+typedef int ShortPathTable[MAX];
+typedef int Patharc[MAX];
 
 bool visited[MAX];
 
@@ -263,10 +267,50 @@ void MiniSpanTree_Kruskal(MGraph G)
 	}
 }
 
+void Dijkstra(MGraph G, int v0, Patharc* P, ShortPathTable* D)
+{
+	int v, w, k, min;
+	int final[MAX];
+	for (v = 0; v < G.numVertexs; v++)
+	{
+		final[v] = 0;
+		(*D)[v] = G.arc[v0][v];
+		(*P)[v] = 0;
+	}
+	(*D)[v0] = 0;
+	final[v0] = 1;
+
+	for (v = 1; v < G.numVertexs; v++)
+	{
+		min = INFINITY;
+		for (w = 0; w < G.numVertexs; w++)
+		{
+			if (!final[w] && (*D)[w] < min)
+			{
+				k = w;
+				min = (*D)[w];
+			}
+		}
+		final[k] = 1;
+		for (w = 0; w < G.numVertexs; w++)
+		{
+			if (!final[w] && (min + G.arc[k][w] < (*D)[w]))
+			{
+				(*D)[w] = min + G.arc[k][w];
+				(*P)[w] = k;
+			}
+		}
+	}
+}
+
 int main()
 {
 	MGraph* G;
+	Patharc* P;
+	ShortPathTable* D;
 	G = (MGraph*)malloc(sizeof(MGraph));
+	P = (Patharc*)malloc(sizeof(Patharc));
+	D = (ShortPathTable*)malloc(sizeof(ShortPathTable));
 	graphinit(G);
 	for (int i = 0; i < G->numVertexs; i++)
 	{
@@ -295,5 +339,13 @@ int main()
 
 	cout << "Kruskal:";
 	MiniSpanTree_Kruskal(*G);
+	cout << endl;
+
+	cout << "Dijkstra:";
+	Dijkstra(*G,1,P,D);
+	for (int i = 0; i < G->numVertexs; i++)
+		cout << *P[i] << " ";
+	cout << endl;
+
 	system("pause");
 }
